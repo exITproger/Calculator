@@ -14,6 +14,10 @@ public class Main {
         showAvailableSystems();
         while (true) {
             NumberSystem system = selectSystem();
+            if (system == null) {
+                System.out.println("Выход из программы.");
+                break;
+            }
             long result = calculate(system);
             try {
                 printResult(result, system.getBase());
@@ -33,8 +37,11 @@ public class Main {
 
     private NumberSystem selectSystem() {
         while (true) {
-            System.out.print("\nВведите систему счисления: ");
+            System.out.print("\nВведите систему счисления (или EXIT для выхода): ");
             String input = in.nextLine().toUpperCase().trim();
+            if (input.equals("EXIT")) {
+                return null;
+            }
             try {
                 return NumberSystem.valueOf(input);
             } catch (IllegalArgumentException e) {
