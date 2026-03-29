@@ -18,15 +18,24 @@ public class Main {
                 System.out.println("Выход из программы.");
                 break;
             }
-            long result = calculate(system);
+            processCalculations(system);
+        }
+    }
+    private void processCalculations(NumberSystem system) {
+        while (true) {
             try {
+                long result = calculate(system);
                 printResult(result, system.getBase());
+                System.out.print("\nПродолжить в текущей системе? (да/нет): ");
+                String answer = in.nextLine().trim().toLowerCase();
+                if (!answer.equals("да") && !answer.equals("yes") && !answer.equals("y")) {
+                    break;
+                }
             } catch (CalculatorException e) {
                 System.out.println("Ошибка: " + e.getMessage());
             }
         }
     }
-
     private void showAvailableSystems() {
         System.out.println("Доступные системы счисления:");
         System.out.println("\tHEX — шестнадцатеричная (0–9, A–F)");
