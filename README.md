@@ -46,3 +46,4 @@
 
   - BIN (двоичная)
 
+<img width="858" height="648" alt="image" src="https://github.com/user-attachments/assets/025c9c95-bd08-440d-87cf-b72ec0e09cbb" />
